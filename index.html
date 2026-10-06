@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Happy Birthday Navare!</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --cream:#FFF6E9; --cream2:#FFEBD2; --ink:#262A55; --ink2:#5E6285;
+  --coral:#FF6B5B; --sun:#FFC94A; --teal:#2BB5A8; --pink:#FF9EC4; --line:#262A5522;
+  --head:'Fredoka',system-ui,sans-serif; --body:'Source Serif 4',Georgia,serif;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--cream);color:var(--ink);font-family:var(--body);font-size:18px;line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+button{font:inherit;color:inherit;cursor:pointer;border:0;background:none}
+:focus-visible{outline:3px solid var(--coral);outline-offset:3px}
+.head{font-family:var(--head);font-weight:700;line-height:1}
+
+/* run track = progress bar */
+#track{position:fixed;top:0;left:0;right:0;height:40px;z-index:50;background:var(--ink);box-sizing:content-box;padding-top:env(safe-area-inset-top,0px)}
+.lane{position:absolute;left:16px;right:40px;bottom:11px;height:4px;background:#ffffff30;border-radius:3px}
+#fill{position:absolute;left:0;top:0;bottom:0;width:0;background:linear-gradient(90deg,var(--sun),var(--coral));border-radius:3px}
+#runner{position:absolute;bottom:6px;left:16px;font-size:18px;transform:translateX(-50%) scaleX(-1)}
+#cake{position:absolute;right:10px;bottom:5px;font-size:20px}
+#kmread{position:absolute;left:16px;top:5px;font:600 11px var(--head);letter-spacing:.08em;color:var(--sun)}
+
+section{min-height:100svh;padding:90px 22px 70px;display:flex;flex-direction:column;justify-content:center;position:relative}
+.wrap{max-width:920px;margin:0 auto;width:100%}
+
+/* hero */
+#hero{background:linear-gradient(180deg,var(--cream2),var(--cream));overflow:hidden}
+.bunting{position:absolute;top:40px;left:0;right:0;height:64px;display:flex;justify-content:space-around;pointer-events:none}
+.bunting i{width:0;height:0;border-left:22px solid transparent;border-right:22px solid transparent;border-top:44px solid var(--c);transform-origin:top;animation:sway 3s ease-in-out infinite alternate}
+.bunting i:nth-child(odd){animation-delay:-1.4s}
+.bunting::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--ink)}
+@keyframes sway{from{transform:rotate(-5deg)}to{transform:rotate(5deg)}}
+.hero-grid{display:grid;gap:34px;align-items:center;margin-top:30px}
+@media(min-width:800px){.hero-grid{grid-template-columns:1.2fr 1fr}}
+.hb{font:600 clamp(20px,4.5vw,30px) var(--head);color:var(--coral);margin-bottom:8px}
+#hero h1{font-size:clamp(60px,17vw,150px);letter-spacing:-.02em;margin-bottom:6px}
+.age{display:inline-block;background:var(--sun);color:var(--ink);font:700 clamp(18px,4vw,26px) var(--head);padding:6px 18px;border-radius:30px;transform:rotate(-3deg);margin-bottom:20px}
+.lede{max-width:480px;color:var(--ink2);margin-bottom:28px}
+.btn{display:inline-block;background:var(--coral);color:#fff;font:600 17px var(--head);padding:15px 30px;min-height:48px;border-radius:40px;text-decoration:none;box-shadow:0 5px 0 #c24a3c;transition:transform .1s,box-shadow .1s}
+.btn:active{transform:translateY(4px);box-shadow:0 1px 0 #c24a3c}
+.btn.teal{background:var(--teal);box-shadow:0 5px 0 #1d8a80}
+.balloon{position:absolute;width:54px;height:66px;border-radius:50% 50% 48% 48%;background:var(--c);opacity:.85;animation:bob 5s ease-in-out infinite alternate;pointer-events:none}
+.balloon::after{content:'';position:absolute;left:50%;top:100%;width:1px;height:70px;background:var(--ink);opacity:.3}
+@keyframes bob{from{transform:translateY(0)}to{transform:translateY(-18px)}}
+
+/* polaroid photo frames */
+.pol{background:#fff;padding:12px 12px 44px;box-shadow:0 10px 26px #262a5530;transform:rotate(var(--r,-3deg));max-width:340px;width:100%;position:relative}
+.pol::before{content:'';position:absolute;top:-12px;left:50%;width:84px;height:24px;background:#ffc94acc;transform:translateX(-50%) rotate(2deg)}
+.pol .ph{aspect-ratio:1/1;background:linear-gradient(135deg,#FFE3D8,#D9F3EF);display:flex;align-items:center;justify-content:center;text-align:center;font:500 13px var(--head);color:var(--ink2);padding:10px;overflow:hidden}
+.pol .ph img{width:100%;height:100%;object-fit:cover;display:block}
+.pol figcaption{position:absolute;bottom:11px;left:0;right:0;text-align:center;font:italic 15px var(--body);color:var(--ink2)}
+
+/* milestones */
+.ms:nth-of-type(odd){background:var(--cream)}
+.ms:nth-of-type(even){background:var(--cream2)}
+.row{display:grid;gap:34px;align-items:center}
+@media(min-width:800px){.row{grid-template-columns:1fr 1fr}.ms.flip .pol{order:-1}}
+.pill{display:inline-block;background:var(--teal);color:#fff;font:600 14px var(--head);padding:5px 14px;border-radius:20px;margin-bottom:14px}
+.ms h2{font-size:clamp(34px,7vw,54px);margin-bottom:16px}
+.ms p{max-width:480px;color:var(--ink2)}
+.ms p+p{margin-top:12px}
+.ms .pol{margin:0 auto}
+
+/* Where we met: wide 16:9 frame */
+#m0 .pol{max-width:min(100%,580px)}
+#m0 .pol .ph{aspect-ratio:16/9}
+@media(min-width:800px){#m0 .row{grid-template-columns:.9fr 1.3fr}}
+@media(max-width:799px){#m0 .pol{padding:10px 10px 40px}}
+
+/* Never giving up: portrait 4:5 frame */
+#m3 .pol{max-width:min(86%,300px)}
+#m3 .pol .ph{aspect-ratio:4/5}
+@media(min-width:800px){#m3 .row{grid-template-columns:1fr 1fr}#m3 .pol{max-width:320px}}
+
+/* stats */
+#stats{background:var(--ink);color:var(--cream)}
+#stats h2{font-size:clamp(32px,7vw,54px);margin-bottom:30px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(min-width:700px){.grid{grid-template-columns:repeat(4,1fr)}}
+.cell{background:#ffffff12;border-radius:18px;padding:24px 14px;text-align:center}
+.cell:nth-child(1) b{color:var(--sun)}.cell:nth-child(2) b{color:var(--pink)}.cell:nth-child(3) b{color:var(--teal)}.cell:nth-child(4) b{color:var(--coral)}
+.cell b{display:block;font:700 clamp(40px,9vw,60px)/1 var(--head)}
+.cell span{font:500 14px var(--head);color:#fff9}
+
+/* run game */
+#sprint{background:linear-gradient(180deg,var(--sun),#FFDC83);text-align:center;align-items:center}
+#sprint h2{font-size:clamp(32px,8vw,60px);margin-bottom:10px}
+#sprint p{margin-bottom:24px}
+#dist{font:700 clamp(40px,10vw,70px)/1 var(--head);margin-bottom:34px}
+.course{position:relative;max-width:620px;margin:0 auto 28px;height:16px;border-radius:10px;background:#fff;border:3px solid var(--ink)}
+.course i{position:absolute;inset:0 auto 0 0;width:0;background:var(--coral);border-radius:8px;transition:width .12s}
+.course em{position:absolute;top:-34px;left:0;font-style:normal;font-size:26px;transform:translateX(-50%) scaleX(-1);transition:left .12s}
+.course u{position:absolute;right:-6px;top:-34px;font-size:26px;text-decoration:none}
+#tap{width:150px;height:150px;border-radius:50%;background:var(--ink);color:var(--sun);font:700 24px var(--head);box-shadow:0 8px 0 #0005;touch-action:manipulation;user-select:none;transition:transform .08s,box-shadow .08s}
+#tap:active,#tap.down{transform:translateY(6px);box-shadow:0 2px 0 #0005}
+#hint{margin-top:26px;font-style:italic}
+
+/* traits */
+#traits{background:var(--cream)}
+#traits h2{font-size:clamp(32px,7vw,54px);margin-bottom:26px}
+.chips{display:grid;gap:16px;grid-template-columns:1fr}
+@media(min-width:640px){.chips{grid-template-columns:1fr 1fr}}
+@media(min-width:960px){.chips{grid-template-columns:repeat(3,1fr)}}
+.trait{background:#fff;border-radius:20px;padding:24px 22px;border-top:6px solid var(--c);box-shadow:0 8px 20px #262a5514;transition:transform .25s}
+.trait:hover{transform:translateY(-4px)}
+.trait:nth-child(4n+1){--c:var(--coral)}.trait:nth-child(4n+2){--c:var(--sun)}.trait:nth-child(4n+3){--c:var(--teal)}.trait:nth-child(4n){--c:var(--pink)}
+.trait b{display:block;font:700 22px var(--head);margin-bottom:6px}
+.trait p{font-size:16px;color:var(--ink2);line-height:1.5}
+
+/* finale: quiet candle moment */
+#finish{display:none;background:radial-gradient(ellipse at 50% 25%,#FFE9A8 0,#FFD2C2 45%,#FFC1D6 100%);color:var(--ink);text-align:center;align-items:center;overflow:hidden}
+#finish.show{display:flex}
+#finish .hb{color:var(--coral)}
+#finish h2{font-size:clamp(60px,18vw,170px);letter-spacing:-.02em;margin-bottom:6px;opacity:.25;transition:opacity 2s}
+#finish.lit h2{opacity:1}
+#candle{display:block;margin:34px auto 6px;padding:50px 30px 0;min-width:44px;min-height:44px;background:none}
+.stick{width:14px;height:96px;margin:0 auto;border-radius:3px;background:repeating-linear-gradient(135deg,var(--coral) 0 10px,#fff 10px 20px);position:relative;box-shadow:0 6px 14px #262a5530}
+.stick::before{content:'';position:absolute;left:50%;top:-8px;width:2px;height:10px;margin-left:-1px;background:var(--ink)}
+.fl{position:absolute;left:50%;bottom:100%;width:24px;height:46px;margin:0 0 4px -12px;border-radius:50% 50% 50% 50%/62% 62% 38% 38%;
+  background:radial-gradient(ellipse at 50% 72%,#fff 0,#FFE08A 35%,#FF9A4D 70%,transparent 72%);box-shadow:0 0 70px 30px #FFC94Aaa;
+  transform-origin:50% 100%;animation:flick .9s ease-in-out infinite alternate;transition:opacity .5s,transform .5s}
+@keyframes flick{from{transform:scale(1) skewX(-2deg)}to{transform:scale(1.08,1.04) skewX(2deg)}}
+#candle.out .fl{opacity:0;transform:scale(.3);animation:none}
+.smoke{position:absolute;left:50%;bottom:100%;width:3px;height:60px;margin-left:-1px;background:linear-gradient(to top,#262a5566,transparent);opacity:0;filter:blur(2px)}
+#candle.out .smoke{animation:rise 2.2s ease-out}
+@keyframes rise{0%{opacity:.9;transform:translateY(0) scaleY(.4)}100%{opacity:0;transform:translateY(-70px) scaleY(1.4) translateX(10px)}}
+#wish{font:600 20px var(--head);color:var(--ink);margin-bottom:28px;min-height:30px}
+#finish .msg{display:none;max-width:600px;margin:0 auto 22px;background:#fff;border-radius:22px;padding:28px 24px;font-style:italic;text-align:left;box-shadow:0 10px 26px #262a5526}
+#finish .msg.show{display:block;animation:pop 1.2s}
+@keyframes pop{from{opacity:0;transform:translateY(16px)}}
+#finish .sub{font:600 15px var(--head);color:var(--coral);display:none}#finish .sub.show{display:block}
+.spark{position:fixed;bottom:-10px;border-radius:50%;background:var(--c);z-index:60;pointer-events:none;animation:up linear forwards}
+@keyframes up{0%{opacity:0;transform:translateY(0)}15%{opacity:1}100%{opacity:0;transform:translateY(-105vh) translateX(var(--dx))}}
+.conf{position:fixed;top:-14px;width:9px;height:14px;z-index:60;pointer-events:none;animation:fall linear forwards}
+@keyframes fall{to{transform:translateY(112vh) rotate(720deg)}}
+
+.egg{position:fixed;left:8px;bottom:calc(8px + env(safe-area-inset-bottom,0px));font:500 11px var(--head);color:var(--ink2);opacity:.55;padding:12px;z-index:40}
+#modal{position:fixed;inset:0;z-index:80;background:#262a55cc;display:none;align-items:center;justify-content:center;padding:24px}
+#modal.show{display:flex}
+#modal div{background:var(--cream);max-width:420px;padding:30px 24px;text-align:center;border-radius:22px}
+#modal p{margin-bottom:20px;font-style:italic}
+@media(prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+
+<div id="track" aria-hidden="true"><div id="kmread">0.0 KM</div><div class="lane"><div id="fill"></div></div><div id="runner">🏃</div><div id="cake">🎂</div></div>
+
+<section id="hero">
+  <div class="bunting" id="bunting"></div>
+  <div class="balloon" style="--c:var(--pink);left:5%;top:34%"></div>
+  <div class="balloon" style="--c:var(--teal);right:6%;top:58%;animation-delay:-2s"></div>
+  <div class="wrap hero-grid">
+    <div>
+      <div class="hb">Happy Birthday</div>
+      <h1 class="head" id="title"></h1>
+      <div class="age" id="age"></div>
+      <p class="lede" id="lede"></p>
+      <a class="btn" href="#m0">Start the story</a>
+    </div>
+    <figure class="pol" id="heroPol"></figure>
+  </div>
+</section>
+
+<div id="ms"></div>
+
+<section id="traits">
+  <div class="wrap"><h2 class="head">What makes Navare, Navare</h2><div class="chips" id="chips"></div></div>
+</section>
+
+<section id="stats">
+  <div class="wrap"><h2 class="head">A few numbers worth celebrating</h2><div class="grid" id="statgrid"></div></div>
+</section>
+
+<section id="sprint">
+  <div class="wrap">
+    <h2 class="head">Last stretch. Tap to finish the half marathon.</h2>
+    <p>Cover 21.1 km and the birthday surprise opens.</p>
+    <div id="dist">0.0 km</div>
+    <div class="course"><i id="cfill"></i><em id="crun">🏃</em><u>🎂</u></div>
+    <button id="tap">Tap!</button>
+    <div id="hint">On a keyboard? Press Space.</div>
+  </div>
+</section>
+
+<section id="finish">
+  <div class="wrap">
+    <div class="hb">Happy Birthday</div>
+    <h2 class="head" id="fname"></h2>
+    <button id="candle" aria-label="Make a wish and blow out the candle"><div class="stick"><div class="fl"></div><div class="smoke"></div></div></button>
+    <div id="wish">Make a wish, then tap the flame.</div>
+    <div class="msg" id="final"></div>
+    <div class="sub" id="next"></div>
+  </div>
+</section>
+
+<button class="egg" id="egg">don't tap</button>
+<div id="modal"><div><p id="eggtext"></p><button class="btn teal" id="close">Close</button></div></div>
+
+<script>
+/* ============ EDIT ONLY THIS OBJECT ============
+   Photos: put image files next to index.html and write the filename.
+   Leave "" to show a friendly "add photo" placeholder. */
+const D = {
+  name: "Navare",
+  age: "Turning 20",
+  heroPhoto: "hero.jpg",          // e.g. "navare_hero.jpg"
+  heroCaption: "The birthday boy",
+  lede: "Straight-talking, always on time, and never one to give up. A birthday story from the whole MitraMandal.",
+
+  traits: [
+    { t:"Straightforward",  d:"Ask him something and you get a real answer. No sugar-coating, no games." },
+    { t:"Always on time",   d:"Years of waiting for MM taught him one thing: a 6 o'clock plan starts at 7. So he arrives at 6:55, just in case we surprise him.<br>PS: We never have." },
+    { t:"Confident",        d:"Calm, sure of himself, and never loud about it." },
+    { t:"A perfect bro",    d:"Shows up, backs you up, and never makes it a big deal." },
+    { t:"Funny",            d:"Knows exactly which joke to crack, and for which crowd." },
+    { t:"Eager learner",    d:"Books, CFA, new habits. Curious about everything, and always improving." }
+  ],
+
+  milestones: [
+    { pill:"Since 5th standard", title:"Where we met", image:"img_1.jpg", cap:"The early days",
+      text:["Around 6th std, it was just four of us: chill, average in studies, and happiest when playing. We never sprinted for the canteen. Our only races were down the corridor, with the teacher's footsteps as the starting gun.",
+            "By 8th std the four boys had become a group of ten, with six girls joining in. That was the start of MitraMandal."] },
+    { pill:"School years", title:"The funny one", image:"img_2.jpg", cap:"Comedy, unfiltered",
+      text:["Every group has someone with perfect timing, and in ours it was Navare. He knew which joke fits which moment, and when to hold it back.",
+            "Straightforward, on time, and the first person you'd call. By the end of school he was less a classmate and more a bro."] },
+    { pill:"After 12th", title:"The turning point", image:"img_3.jpg", cap:"Where the discipline began",
+      text:["After 12th, Navare picked a direction and stuck to it. Running, reading, and CFA now too, all handled with the same steady discipline.",
+            "He doesn't chase motivation. He builds a routine and trusts it."] },
+    { pill:"Today", title:"Never giving up", image:"img_4.jpeg", cap:"Race day",
+      text:["A 10 km run, then a 21 km half marathon. The distance isn't the point. Not giving up is.",
+            "Quietly, consistently, he keeps showing the rest of us what that looks like."] }
+  ],
+
+  stats: [
+    { v:21.1, d:1, l:"Km, half marathon" },
+    { v:10,    d:0, l:"Km, first race" },
+    { v:9,    d:0, l:"Years of friendship" },
+    { v:10,   d:0, l:"Friends cheering" }
+  ],
+
+  final: "Nine years, ten friends, and one of the steadiest people we know. Straightforward, always on time, and never giving up. Happy 20th birthday, Navare. Here's to the next kilometre.",
+  next: "Next goal: 42.2 km. We'll bring the snacks.",
+  egg: "Secret ending found. Yes, we built a whole website for one birthday. Navare didn't ask for it. MM did it anyway."
+};
+/* ============ RENDER (no need to edit) ============ */
+const $ = id => document.getElementById(id);
+document.title = "Happy Birthday " + D.name + "!";
+$('title').textContent = D.name;
+$('chips').innerHTML = D.traits.map(x=>`<div class="trait"><b>${x.t}</b><p>${x.d}</p></div>`).join('');
+$('age').textContent = D.age;
+$('lede').textContent = D.lede;
+$('fname').textContent = D.name;
+$('final').textContent = "\u201C" + D.final + "\u201D";
+$('next').textContent = D.next;
+$('eggtext').textContent = D.egg;
+
+const cols = ['#FF6B5B','#FFC94A','#2BB5A8','#FF9EC4','#262A55'];
+$('bunting').innerHTML = Array.from({length:12},(_,i)=>`<i style="--c:${cols[i%5]}"></i>`).join('');
+
+function polaroid(src, cap){
+  const ph = src ? `<img src="${src}" alt="${cap}" onerror="this.replaceWith(document.createTextNode('Add photo: ${src}'))">` : 'Add a photo here';
+  return `<div class="ph">${ph}</div><figcaption>${cap}</figcaption>`;
+}
+$('heroPol').innerHTML = polaroid(D.heroPhoto, D.heroCaption);
+
+$('ms').innerHTML = D.milestones.map((m,i)=>`
+  <section class="ms ${i%2?'flip':''}" id="m${i}">
+    <div class="wrap row">
+      <div><span class="pill">${m.pill}</span><h2 class="head">${m.title}</h2>${m.text.map(t=>`<p>${t}</p>`).join('')}</div>
+      <figure class="pol" style="--r:${i%2?3:-3}deg">${polaroid(m.image, m.cap)}</figure>
+    </div>
+  </section>`).join('');
+
+$('statgrid').innerHTML = D.stats.map(s=>`<div class="cell"><b data-v="${s.v}" data-d="${s.d}">0</b><span>${s.l}</span></div>`).join('');
+
+/* run-track progress */
+function onScroll(){
+  const max = document.documentElement.scrollHeight - innerHeight;
+  const p = max>0 ? Math.min(1, scrollY/max) : 0;
+  const w = $('track').clientWidth - 56;
+  $('fill').style.width = (p*100)+'%';
+  $('runner').style.left = (16 + p*w)+'px';
+  $('kmread').textContent = (p*21.1).toFixed(1)+' KM';
+}
+addEventListener('scroll', onScroll, {passive:true}); addEventListener('resize', onScroll); onScroll();
+
+/* stat count-up */
+document.querySelectorAll('.cell b').forEach(b=>{
+  const io = new IntersectionObserver(es=>es.forEach(e=>{
+    if(!e.isIntersecting) return; io.disconnect();
+    const v=+b.dataset.v, dec=+b.dataset.d, t0=performance.now();
+    (function f(t){const k=Math.min(1,(t-t0)/1400);b.textContent=(v*(1-Math.pow(1-k,3))).toFixed(dec);if(k<1)requestAnimationFrame(f)})(t0);
+  }),{threshold:.6}); io.observe(b);
+});
+
+function confetti(n){
+  for(let i=0;i<n;i++){
+    const c=document.createElement('div'); c.className='conf';
+    c.style.left=Math.random()*100+'vw'; c.style.background=cols[i%5];
+    c.style.borderRadius=i%3?'2px':'50%';
+    c.style.animationDuration=(2.5+Math.random()*2.5)+'s'; c.style.animationDelay=(Math.random()*1)+'s';
+    document.body.appendChild(c); setTimeout(()=>c.remove(),7000);
+  }
+}
+
+/* tap to run */
+let dist=0, done=false; const TOTAL=21.1;
+function step(){
+  if(done) return;
+  dist = Math.min(TOTAL, dist + 2.2 + Math.random()*0.8);
+  const p = dist/TOTAL*100;
+  $('dist').textContent = dist.toFixed(1)+' km';
+  $('cfill').style.width = p+'%'; $('crun').style.left = p+'%';
+  if(dist>=TOTAL){ done=true; $('hint').textContent='Finish line!'; setTimeout(openCake,600); }
+}
+$('tap').addEventListener('click', step);
+addEventListener('keydown', e=>{
+  if(e.code==='Space' && document.activeElement.tagName!=='BUTTON'){
+    e.preventDefault(); const b=$('tap'); b.classList.add('down'); step(); setTimeout(()=>b.classList.remove('down'),90);
+  }
+});
+
+/* candle wish */
+function sparks(n){
+  for(let i=0;i<n;i++){
+    const p=document.createElement('div'); p.className='spark';
+    const z=2+Math.random()*4; p.style.width=p.style.height=z+'px';
+    p.style.left=(10+Math.random()*80)+'vw'; p.style.setProperty('--c',cols[i%4]); p.style.setProperty('--dx',(Math.random()*80-40)+'px');
+    p.style.animationDuration=(5+Math.random()*5)+'s'; p.style.animationDelay=(Math.random()*2.5)+'s';
+    document.body.appendChild(p); setTimeout(()=>p.remove(),12000);
+  }
+}
+$('candle').addEventListener('click',()=>{
+  const c=$('candle'); if(c.classList.contains('out')) return;
+  c.classList.add('out');
+  $('wish').textContent='Wish made. Happy birthday, '+D.name+'.';
+  setTimeout(()=>{
+    $('finish').classList.add('lit'); sparks(70);
+    $('final').classList.add('show'); $('next').classList.add('show');
+    $('final').scrollIntoView({behavior:'smooth',block:'center'});
+  },900);
+});
+function openCake(){
+  $('finish').classList.add('show');
+  $('finish').scrollIntoView({behavior:'smooth'});
+}
+
+$('egg').onclick=()=>$('modal').classList.add('show');
+$('close').onclick=()=>$('modal').classList.remove('show');
+confetti(36);
+</script>
+</body>
+</html>
